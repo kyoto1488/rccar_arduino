@@ -1,0 +1,9 @@
+/Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/CMakeFiles/radio_car-upload.dir
+/Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/CMakeFiles/radio_car-size.dir
+/Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/CMakeFiles/radio_car.dir
+/Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/CMakeFiles/uno_ServoTimers.dir
+/Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/CMakeFiles/uno_Servo.dir
+/Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/CMakeFiles/upload.dir
+/Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/CMakeFiles/uno_CORE.dir
