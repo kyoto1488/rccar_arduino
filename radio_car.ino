@@ -212,16 +212,16 @@ void loop() {
     if (Serial.available() > 0) {
         String input = Serial.readStringUntil('\n');
 
-        unsigned long start = micros();
+//        unsigned long start = micros();
 
         execute(createCommand(input));
 
-        unsigned long delta = micros() - start;
-        Serial.print("Delta Time: ");
-        Serial.print(delta);
-        Serial.println();
-        Serial.print("Count in seconds: ");
-        Serial.print(1000000 / delta);
-        Serial.println();
+//        unsigned long delta = micros() - start;
+//        Serial.print("Delta Time: ");
+//        Serial.print(delta);
+//        Serial.println();
+//        Serial.print("Count in seconds: ");
+//        Serial.print(1000000 / delta);
+//        Serial.println();
     }
 }
