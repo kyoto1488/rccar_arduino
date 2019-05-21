@@ -56,7 +56,7 @@ const action_t UNKNOWN = 0x4;
 const motor_dir_t DIRECTION_FORWARD = 0x1;
 const motor_dir_t DIRECTION_BACKWARD = 0x2;
 
-const bool DEFAULT_STATE_LED = true;
+bool DEFAULT_STATE_LED = true;
 
 /**
  * Функция устанавливает направление моторов
@@ -159,13 +159,11 @@ action_t createCommandAction(String data) {
  * @return
  */
 data_t createCommandData(String data) {
-    data_t commandData;
-
     if (data.length() > 0) {
-        commandData = data.toDouble();
+        return data.toDouble();
     }
 
-    return commandData;
+    return NULL;
 }
 
 /**
@@ -190,23 +188,22 @@ command_t createCommand(String input) {
 bool execute(command_t command) {
     action_t action = command.action;
 
-    if (action == ROTATE_ENGINE) {
+    if (action == ROTATE_ENGINE && command.data != NULL) {
         long power = (long)command.data;
         uint8_t signal = (uint8_t)map(power, -100, 100, 0, 255);
         setMotorDirection(power > 0 ? DIRECTION_FORWARD : DIRECTION_BACKWARD);
         setMotorSignals(signal, signal);
 
         return true;
-    } else if (action == ROTATE_SERVO) {
+    } else if (action == ROTATE_SERVO && command.data != NULL) {
         long power = (long)command.data;
         uint8_t angle = (uint8_t)map(power, -100, 100, 0, 180);
         setSteeringWheelAngle(angle);
 
         return true;
     } else if (action == SWITCH_LIGHTING) {
-        static bool led_state = DEFAULT_STATE_LED;
-        led_state = !led_state;
-        digitalWrite(PIN_LED, led_state ? HIGH : LOW);
+        DEFAULT_STATE_LED = !DEFAULT_STATE_LED;
+        digitalWrite(PIN_LED, DEFAULT_STATE_LED ? HIGH : LOW);
 
         return true;
     }
@@ -246,15 +243,16 @@ void loop() {
     if (Serial.available() > 0) {
         String input = Serial.readStringUntil('\n');
 
-        unsigned long start = micros();
+//        unsigned long start = micros();
+
         execute(createCommand(input));
 
-        unsigned long delta = micros() - start;
-        Serial.print("Delta Time: ");
-        Serial.print(delta);
-        Serial.println();
-        Serial.print("Count in seconds: ");
-        Serial.print(1000000 / delta);
-        Serial.println();
+//        unsigned long delta = micros() - start;
+//        Serial.print("Delta Time: ");
+//        Serial.print(delta);
+//        Serial.println();
+//        Serial.print("Count in seconds: ");
+//        Serial.print(1000000 / delta);
+//        Serial.println();
     }
 }

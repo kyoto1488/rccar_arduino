@@ -19,12 +19,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9d0e3d7e-6a4a-43fe-916b-08852010b0c3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/radio_car.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/radio_car.elf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/radio_car.hex" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/radio_car.hex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/radio_car_radio_car.ino.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/radio_car_radio_car.ino.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/radio_car.h" beforeDir="false" afterPath="$PROJECT_DIR$/radio_car.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/radio_car.ino" beforeDir="false" afterPath="$PROJECT_DIR$/radio_car.ino" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -40,14 +34,19 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/radio_car.ino">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1720">
-              <caret line="217" column="8" selection-start-line="217" selection-start-column="8" selection-end-line="217" selection-end-column="8" />
+            <state relative-caret-position="-367">
+              <caret line="173" column="47" selection-start-line="173" selection-start-column="47" selection-end-line="173" selection-end-column="47" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
-                <element signature="e#798#1525#0" />
-                <element signature="e#1527#1786#0" />
-                <element signature="e#1788#1939#0" />
-                <element signature="e#1941#2086#0" />
+                <element signature="e#800#1528#0" />
+                <element signature="e#1530#1789#0" />
+                <element signature="e#1791#1942#0" />
+                <element signature="e#1944#2089#0" />
+                <element signature="e#2091#2657#0" />
+                <element signature="e#2659#3115#0" />
+                <element signature="e#3117#3321#0" />
+                <element signature="e#3323#3608#0" />
+                <element signature="e#4538#5185#0" />
               </folding>
             </state>
           </provider>
@@ -199,12 +198,12 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.radio_car" />
       <item itemvalue="Application.radio_car-size" />
       <item itemvalue="Application.radio_car-upload" />
+      <item itemvalue="Application.radio_car" />
       <item itemvalue="Application.uno_CORE" />
-      <item itemvalue="Application.uno_Servo" />
       <item itemvalue="Application.uno_ServoTimers" />
+      <item itemvalue="Application.uno_Servo" />
       <item itemvalue="Application.upload" />
     </list>
   </component>
@@ -253,12 +252,13 @@
       <workItem from="1558304860425" duration="1865000" />
       <workItem from="1558306788628" duration="224000" />
       <workItem from="1558361103863" duration="630000" />
-      <workItem from="1558375627241" duration="849000" />
+      <workItem from="1558375627241" duration="986000" />
+      <workItem from="1558420085444" duration="136000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44269000" />
+    <option name="totallyTimeSpent" value="44542000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -273,7 +273,7 @@
     <frame x="0" y="23" width="1280" height="713" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.40145397" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.40791598" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -390,14 +390,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/radio_car.ino">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1720">
-          <caret line="217" column="8" selection-start-line="217" selection-start-column="8" selection-end-line="217" selection-end-column="8" />
+        <state relative-caret-position="-367">
+          <caret line="173" column="47" selection-start-line="173" selection-start-column="47" selection-end-line="173" selection-end-column="47" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#798#1525#0" />
-            <element signature="e#1527#1786#0" />
-            <element signature="e#1788#1939#0" />
-            <element signature="e#1941#2086#0" />
+            <element signature="e#800#1528#0" />
+            <element signature="e#1530#1789#0" />
+            <element signature="e#1791#1942#0" />
+            <element signature="e#1944#2089#0" />
+            <element signature="e#2091#2657#0" />
+            <element signature="e#2659#3115#0" />
+            <element signature="e#3117#3321#0" />
+            <element signature="e#3323#3608#0" />
+            <element signature="e#4538#5185#0" />
           </folding>
         </state>
       </provider>

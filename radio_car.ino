@@ -24,7 +24,7 @@ const action_t UNKNOWN = 0x4;
 const motor_dir_t DIRECTION_FORWARD = 0x1;
 const motor_dir_t DIRECTION_BACKWARD = 0x2;
 
-const bool DEFAULT_STATE_LED = true;
+bool DEFAULT_STATE_LED = true;
 
 /**
  * Функция устанавливает направление моторов
@@ -170,9 +170,8 @@ bool execute(command_t command) {
 
         return true;
     } else if (action == SWITCH_LIGHTING) {
-        static bool led_state = DEFAULT_STATE_LED;
-        led_state = !led_state;
-        digitalWrite(PIN_LED, led_state ? HIGH : LOW);
+        DEFAULT_STATE_LED = !DEFAULT_STATE_LED;
+        digitalWrite(PIN_LED, DEFAULT_STATE_LED ? HIGH : LOW);
 
         return true;
     }
