@@ -46,11 +46,11 @@ const pin_t PIN_SERVO_SIGNAL = 11;
 const pin_t PIN_LED = 13;
 
 const action_t ROTATE_ENGINE = 0x1;
-const action_str_t ACTION_ROTATE_ENGINE = "engine";
+const action_key_t ACTION_ROTATE_ENGINE = "engine";
 const action_t ROTATE_SERVO = 0x2;
-const action_str_t ACTION_ROTATE_SERVO = "servo";
+const action_key_t ACTION_ROTATE_SERVO = "servo";
 const action_t SWITCH_LIGHTING = 0x3;
-const action_str_t ACTION_SWITCH_LIGHTING = "lighting";
+const action_key_t ACTION_SWITCH_LIGHTING = "lighting";
 
 const motor_dir_t DIRECTION_FORWARD = 0x1;
 const motor_dir_t DIRECTION_BACKWARD = 0x2;
@@ -159,7 +159,7 @@ action_t createCommandAction(String data) {
  */
 data_t createCommandData(String data) {
     if (data.length() > 0) {
-        return data.toDouble();
+        return (data_t)data.toDouble();
     }
 
     return NULL;
