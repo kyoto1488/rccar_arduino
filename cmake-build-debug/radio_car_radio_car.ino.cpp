@@ -46,11 +46,11 @@ const pin_t PIN_SERVO_SIGNAL = 11;
 const pin_t PIN_LED = 13;
 
 const action_t ROTATE_ENGINE = 0x1;
-const action_key_t ACTION_ROTATE_ENGINE = "engine";
+const action_str_t KEY_ROTATE_ENGINE = "engine";
 const action_t ROTATE_SERVO = 0x2;
-const action_key_t ACTION_ROTATE_SERVO = "servo";
+const action_str_t KEY_ROTATE_SERVO = "servo";
 const action_t SWITCH_LIGHTING = 0x3;
-const action_key_t ACTION_SWITCH_LIGHTING = "lighting";
+const action_str_t KEY_SWITCH_LIGHTING = "lighting";
 
 const motor_dir_t DIRECTION_FORWARD = 0x1;
 const motor_dir_t DIRECTION_BACKWARD = 0x2;
@@ -137,15 +137,14 @@ void setSteeringWheelPin(pin_t pin) {
  * @param data
  * @return
  */
+
 action_t createCommandAction(String data) {
-    if (data.length() > 0) {
-        if (data.equals(ACTION_ROTATE_ENGINE)) {
-            return ROTATE_ENGINE;
-        } else if (data.equals(ACTION_ROTATE_SERVO)) {
-            return ROTATE_SERVO;
-        } else if (data.equals(ACTION_SWITCH_LIGHTING)) {
-            return SWITCH_LIGHTING;
-        }
+    if (data.equals(KEY_ROTATE_ENGINE)) {
+        return ROTATE_ENGINE;
+    } else if (data.equals(KEY_ROTATE_SERVO)) {
+        return ROTATE_SERVO;
+    } else if (data.equals(KEY_SWITCH_LIGHTING)) {
+        return SWITCH_LIGHTING;
     }
 
     return NULL;
@@ -242,16 +241,19 @@ void loop() {
     if (Serial.available() > 0) {
         String input = Serial.readStringUntil('\n');
 
-//        unsigned long start = micros();
+        unsigned long start = micros();
 
-        execute(createCommand(input));
+        bool isExecuted = execute(createCommand(input));
 
-//        unsigned long delta = micros() - start;
-//        Serial.print("Delta Time: ");
-//        Serial.print(delta);
-//        Serial.println();
-//        Serial.print("Count in seconds: ");
-//        Serial.print(1000000 / delta);
-//        Serial.println();
+        Serial.print("Executed: ");
+        Serial.print(isExecuted ? "TRUE" : "FALSE");
+        Serial.println();
+        unsigned long delta = micros() - start;
+        Serial.print("Delta Time: ");
+        Serial.print(delta);
+        Serial.println();
+        Serial.print("Count in seconds: ");
+        Serial.print(1000000 / delta);
+        Serial.println();
     }
 }
