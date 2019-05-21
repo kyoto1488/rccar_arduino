@@ -19,6 +19,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9d0e3d7e-6a4a-43fe-916b-08852010b0c3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/radio_car.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/radio_car.elf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/radio_car.ino" beforeDir="false" afterPath="$PROJECT_DIR$/radio_car.ino" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -30,21 +33,22 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/radio_car.ino">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5625">
-              <caret line="217" column="25" selection-start-line="217" selection-start-column="25" selection-end-line="217" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/radio_car.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+            <state relative-caret-position="271">
+              <caret line="175" column="9" selection-start-line="175" selection-start-column="9" selection-end-line="175" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+                <element signature="e#755#1483#0" />
+                <element signature="e#1485#1744#0" />
+                <element signature="e#1746#1897#0" />
+                <element signature="e#1899#2044#0" />
+                <element signature="e#2614#2986#0" />
+                <element signature="e#3269#3476#1" />
+                <element signature="e#4400#5047#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,8 +91,8 @@
         <option value="$PROJECT_DIR$/Command/Command.h" />
         <option value="$PROJECT_DIR$/Command/Command.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/radio_car.ino" />
         <option value="$PROJECT_DIR$/radio_car.h" />
+        <option value="$PROJECT_DIR$/radio_car.ino" />
       </list>
     </option>
   </component>
@@ -158,7 +162,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.upload">
+  <component name="RunManager" selected="Application.radio_car">
     <configuration name="radio_car-size" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="radio_car" TARGET_NAME="radio_car-size" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="radio_car" RUN_TARGET_NAME="radio_car">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -256,12 +260,13 @@
       <workItem from="1558423026182" duration="580000" />
       <workItem from="1558444890210" duration="1797000" />
       <workItem from="1558446774153" duration="1761000" />
-      <workItem from="1558454317919" duration="36000" />
+      <workItem from="1558454317919" duration="101000" />
+      <workItem from="1558468785373" duration="693000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49341000" />
+    <option name="totallyTimeSpent" value="50099000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -276,7 +281,7 @@
     <frame x="0" y="23" width="1280" height="713" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2641357" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26817447" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -289,7 +294,7 @@
       <window_info anchor="bottom" id="Serial Monitor" order="7" weight="0.52561986" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.37355372" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3289256" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3289256" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.3289256" />
       <window_info anchor="bottom" id="CMake" order="13" weight="0.3289256" />
@@ -380,10 +385,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include/stddef.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="402" column="10" selection-start-line="402" selection-start-column="10" selection-end-line="402" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/radio_car.ino">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5625">
-          <caret line="217" column="25" selection-start-line="217" selection-start-column="25" selection-end-line="217" selection-end-column="25" />
+        <state relative-caret-position="271">
+          <caret line="175" column="9" selection-start-line="175" selection-start-column="9" selection-end-line="175" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#755#1483#0" />
+            <element signature="e#1485#1744#0" />
+            <element signature="e#1746#1897#0" />
+            <element signature="e#1899#2044#0" />
+            <element signature="e#2614#2986#0" />
+            <element signature="e#3269#3476#1" />
+            <element signature="e#4400#5047#0" />
+          </folding>
         </state>
       </provider>
     </entry>

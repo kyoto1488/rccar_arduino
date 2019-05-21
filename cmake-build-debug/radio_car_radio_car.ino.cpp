@@ -125,10 +125,11 @@ void setSteeringWheelPin(pin_t pin) {
         int end = data.indexOf(';', (unsigned int)start);
         String substring = data.substring((unsigned int)start,(unsigned int)end);
         substring.trim();
+
         return substring;
     }
 
-    return "";
+    return NULL;
 }
 
 /**
@@ -137,14 +138,14 @@ void setSteeringWheelPin(pin_t pin) {
  * @param data
  * @return
  */
-
 action_t createCommandAction(String data) {
-    if (data.equals(KEY_ROTATE_ENGINE)) {
-        return ROTATE_ENGINE;
-    } else if (data.equals(KEY_ROTATE_SERVO)) {
-        return ROTATE_SERVO;
-    } else if (data.equals(KEY_SWITCH_LIGHTING)) {
-        return SWITCH_LIGHTING;
+    if (data != NULL) {
+        if (data.equals(KEY_ROTATE_ENGINE))
+            return ROTATE_ENGINE;
+        else if (data.equals(KEY_ROTATE_SERVO))
+            return ROTATE_SERVO;
+        if (data.equals(KEY_SWITCH_LIGHTING))
+            return SWITCH_LIGHTING;
     }
 
     return NULL;
@@ -157,9 +158,8 @@ action_t createCommandAction(String data) {
  * @return
  */
 data_t createCommandData(String data) {
-    if (data.length() > 0) {
+    if (data != NULL)
         return (data_t)data.toDouble();
-    }
 
     return NULL;
 }
@@ -186,24 +186,26 @@ command_t createCommand(String input) {
 bool execute(command_t command) {
     action_t action = command.action;
 
-    if (action == ROTATE_ENGINE && command.data != NULL) {
-        long power = (long)command.data;
-        uint8_t signal = (uint8_t)map(power, -100, 100, 0, 255);
-        setMotorDirection(power > 0 ? DIRECTION_FORWARD : DIRECTION_BACKWARD);
-        setMotorSignals(signal, signal);
+    if (action != NULL) {
+        if (action == ROTATE_ENGINE && command.data != NULL) {
+            long power = (long)command.data;
+            uint8_t signal = (uint8_t)map(power, -100, 100, 0, 255);
+            setMotorDirection(power > 0 ? DIRECTION_FORWARD : DIRECTION_BACKWARD);
+            setMotorSignals(signal, signal);
 
-        return true;
-    } else if (action == ROTATE_SERVO && command.data != NULL) {
-        long power = (long)command.data;
-        uint8_t angle = (uint8_t)map(power, -100, 100, 0, 180);
-        setSteeringWheelAngle(angle);
+            return true;
+        } else if (action == ROTATE_SERVO && command.data != NULL) {
+            long power = (long)command.data;
+            uint8_t angle = (uint8_t)map(power, -100, 100, 0, 180);
+            setSteeringWheelAngle(angle);
 
-        return true;
-    } else if (action == SWITCH_LIGHTING) {
-        DEFAULT_STATE_LED = !DEFAULT_STATE_LED;
-        digitalWrite(PIN_LED, DEFAULT_STATE_LED ? HIGH : LOW);
+            return true;
+        } else if (action == SWITCH_LIGHTING) {
+            DEFAULT_STATE_LED = !DEFAULT_STATE_LED;
+            digitalWrite(PIN_LED, DEFAULT_STATE_LED ? HIGH : LOW);
 
-        return true;
+            return true;
+        }
     }
 
     return false;
