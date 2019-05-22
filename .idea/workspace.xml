@@ -17,7 +17,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d0e3d7e-6a4a-43fe-916b-08852010b0c3" name="Default Changelist" comment="" />
+    <list default="true" id="9d0e3d7e-6a4a-43fe-916b-08852010b0c3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/radio_car.ino" beforeDir="false" afterPath="$PROJECT_DIR$/radio_car.ino" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,23 +30,17 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/radio_car.ino">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="153" column="32" selection-start-line="153" selection-start-column="32" selection-end-line="153" selection-end-column="32" />
+            <state relative-caret-position="292">
+              <caret line="167" column="12" selection-start-line="167" selection-start-column="12" selection-end-line="167" selection-end-column="12" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
-                <element signature="e#755#1483#0" />
                 <element signature="e#1485#1744#0" />
                 <element signature="e#1746#1897#0" />
                 <element signature="e#1899#2044#0" />
-                <element signature="e#2614#2986#0" />
-                <element signature="e#2998#3188#0" />
-                <element signature="e#3269#3476#1" />
-                <element signature="e#3499#4398#0" />
-                <element signature="e#4400#5047#0" />
               </folding>
             </state>
           </provider>
@@ -92,7 +89,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="713" />
@@ -257,12 +254,13 @@
       <workItem from="1558444890210" duration="1797000" />
       <workItem from="1558446774153" duration="1761000" />
       <workItem from="1558454317919" duration="101000" />
-      <workItem from="1558468785373" duration="969000" />
+      <workItem from="1558468785373" duration="1058000" />
+      <workItem from="1558541943260" duration="170000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50375000" />
+    <option name="totallyTimeSpent" value="50634000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -277,7 +275,7 @@
     <frame x="0" y="23" width="1280" height="713" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26817447" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27221325" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -390,19 +388,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/radio_car.ino">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="153" column="32" selection-start-line="153" selection-start-column="32" selection-end-line="153" selection-end-column="32" />
+        <state relative-caret-position="292">
+          <caret line="167" column="12" selection-start-line="167" selection-start-column="12" selection-end-line="167" selection-end-column="12" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#755#1483#0" />
             <element signature="e#1485#1744#0" />
             <element signature="e#1746#1897#0" />
             <element signature="e#1899#2044#0" />
-            <element signature="e#2614#2986#0" />
-            <element signature="e#2998#3188#0" />
-            <element signature="e#3269#3476#1" />
-            <element signature="e#3499#4398#0" />
-            <element signature="e#4400#5047#0" />
           </folding>
         </state>
       </provider>

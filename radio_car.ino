@@ -22,6 +22,7 @@ const action_key_t KEY_SWITCH_LIGHTING = "lighting";
 
 const motor_dir_t DIRECTION_FORWARD = 0x1;
 const motor_dir_t DIRECTION_BACKWARD = 0x2;
+motor_dir_t CURRENT_DIRECTION = DIRECTION_FORWARD;
 
 bool DEFAULT_STATE_LED = true;
 
@@ -34,12 +35,14 @@ bool DEFAULT_STATE_LED = true;
 void setMotorDirection(motor_dir_t direction) {
     switch (direction) {
         case DIRECTION_FORWARD:
+            CURRENT_DIRECTION = direction;
             digitalWrite(PIN_MOTOR_DRIVER_IN1, HIGH);
             digitalWrite(PIN_MOTOR_DRIVER_IN2, LOW);
             digitalWrite(PIN_MOTOR_DRIVER_IN3, HIGH);
             digitalWrite(PIN_MOTOR_DRIVER_IN4, LOW);
             break;
         case DIRECTION_BACKWARD:
+            CURRENT_DIRECTION = direction;
             digitalWrite(PIN_MOTOR_DRIVER_IN1, LOW);
             digitalWrite(PIN_MOTOR_DRIVER_IN2, HIGH);
             digitalWrite(PIN_MOTOR_DRIVER_IN3, LOW);
@@ -158,7 +161,11 @@ bool execute(command_t command) {
         if (action == ROTATE_ENGINE && command.data != NULL) {
             long power = (long)command.data;
             uint8_t signal = (uint8_t)map(power, -100, 100, 0, 255);
-            setMotorDirection(power > 0 ? DIRECTION_FORWARD : DIRECTION_BACKWARD);
+            motor_dir_t direction = power > 0 ? DIRECTION_FORWARD : DIRECTION_BACKWARD;
+
+            if (direction != CURRENT_DIRECTION)
+                setMotorDirection(direction);
+
             setMotorSignals(signal, signal);
 
             return true;
@@ -193,7 +200,7 @@ void setup() {
     pinMode(PIN_MOTOR_DRIVER_ENA, OUTPUT);
     pinMode(PIN_MOTOR_DRIVER_ENB, OUTPUT);
 
-    setMotorDirection(DIRECTION_FORWARD);
+    setMotorDirection(CURRENT_DIRECTION);
 
     pinMode(PIN_SERVO_SIGNAL, OUTPUT);
     setSteeringWheelPin(PIN_SERVO_SIGNAL);
