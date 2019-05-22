@@ -67,14 +67,12 @@ bool DEFAULT_STATE_LED = true;
 void setMotorDirection(motor_dir_t direction) {
     switch (direction) {
         case DIRECTION_FORWARD:
-            CURRENT_DIRECTION = direction;
             digitalWrite(PIN_MOTOR_DRIVER_IN1, HIGH);
             digitalWrite(PIN_MOTOR_DRIVER_IN2, LOW);
             digitalWrite(PIN_MOTOR_DRIVER_IN3, HIGH);
             digitalWrite(PIN_MOTOR_DRIVER_IN4, LOW);
             break;
         case DIRECTION_BACKWARD:
-            CURRENT_DIRECTION = direction;
             digitalWrite(PIN_MOTOR_DRIVER_IN1, LOW);
             digitalWrite(PIN_MOTOR_DRIVER_IN2, HIGH);
             digitalWrite(PIN_MOTOR_DRIVER_IN3, LOW);
@@ -195,11 +193,13 @@ bool execute(command_t command) {
             uint8_t signal = (uint8_t)map(power, -100, 100, 0, 255);
             motor_dir_t direction = power > 0 ? DIRECTION_FORWARD : DIRECTION_BACKWARD;
 
-            if (direction != CURRENT_DIRECTION)
-                setMotorDirection(direction);
+            if (direction != CURRENT_DIRECTION) {
+                CURRENT_DIRECTION = direction;
+                setMotorDirection(CURRENT_DIRECTION);
+            }
 
             setMotorSignals(signal, signal);
-
+            
             return true;
         } else if (action == ROTATE_SERVO && command.data != NULL) {
             long power = (long)command.data;
