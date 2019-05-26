@@ -16,14 +16,20 @@
  void setSteeringWheelAngle(uint8_t angle) ;
  void setSteeringWheelPin(pin_t pin) ;
  void setSteeringWheelPin(pin_t pin) ;
-  String getSubstringKeyValue(String data, String key) ;
-  String getSubstringKeyValue(String data, String key) ;
+  String getSubstringValueFromKey(String data, String key) ;
+  String getSubstringValueFromKey(String data, String key) ;
  action_t createCommandAction(String data) ;
  action_t createCommandAction(String data) ;
  data_t createCommandData(String data) ;
  data_t createCommandData(String data) ;
  command_t createCommand(String input) ;
  command_t createCommand(String input) ;
+ bool rotateEngine(data_t data) ;
+ bool rotateEngine(data_t data) ;
+ bool rotateServo(data_t data) ;
+ bool rotateServo(data_t data) ;
+ bool switchLighting() ;
+ bool switchLighting() ;
  bool execute(command_t command) ;
  bool execute(command_t command) ;
  void setup() ;
@@ -54,7 +60,6 @@ const action_key_t KEY_SWITCH_LIGHTING = "lighting";
 
 const motor_dir_t DIRECTION_FORWARD = 0x1;
 const motor_dir_t DIRECTION_BACKWARD = 0x2;
-motor_dir_t CURRENT_DIRECTION = DIRECTION_FORWARD;
 
 bool DEFAULT_STATE_LED = true;
 
@@ -118,7 +123,7 @@ void setSteeringWheelPin(pin_t pin) {
  * @param key
  * @return
  */
- String getSubstringKeyValue(String data, String key) {
+ String getSubstringValueFromKey(String data, String key) {
     int index = data.indexOf(key);
 
     if (index >= 0) {
@@ -173,49 +178,78 @@ data_t createCommandData(String data) {
  */
 command_t createCommand(String input) {
     return command_t {
-            createCommandAction(getSubstringKeyValue(input, "cmd")),
-            createCommandData(getSubstringKeyValue(input, "data"))
+            createCommandAction(getSubstringValueFromKey(input, "cmd")),
+            createCommandData(getSubstringValueFromKey(input, "data"))
     };
+}
+
+/**
+ * Вращает моторы
+ *
+ * @param data
+ * @return
+ */
+bool rotateEngine(data_t data) {
+    if (data != NULL) {
+        long power = (long)data;
+        uint8_t signal = (uint8_t)map(power, -100, 100, 0, 255);
+        motor_dir_t direction = power > 0 ? DIRECTION_FORWARD : DIRECTION_BACKWARD;
+        setMotorDirection(direction);
+        setMotorSignals(signal, signal);
+
+        return true;
+    }
+
+    return false;
+}
+
+/**
+ * Вращает серво привод
+ *
+ * @param data
+ * @return
+ */
+bool rotateServo(data_t data) {
+    if (data != NULL) {
+        long power = (long)data;
+        uint8_t angle = (uint8_t)map(power, -100, 100, 0, 180);
+        setSteeringWheelAngle(angle);
+
+        return true;
+    }
+
+    return false;
+}
+
+/**
+ * Переключает питание на светодиоды
+ *
+ * @return
+ */
+bool switchLighting() {
+    DEFAULT_STATE_LED = !DEFAULT_STATE_LED;
+    digitalWrite(PIN_LED, DEFAULT_STATE_LED ? HIGH : LOW);
+
+    return true;
 }
 
 /**
  * Функция выполняет переданную комманду
  *
  * @param command
- * @return bool
+ * @return
  */
 bool execute(command_t command) {
-    action_t action = command.action;
-
-    if (action != NULL) {
-        if (action == ROTATE_ENGINE && command.data != NULL) {
-            long power = (long)command.data;
-            uint8_t signal = (uint8_t)map(power, -100, 100, 0, 255);
-            motor_dir_t direction = power > 0 ? DIRECTION_FORWARD : DIRECTION_BACKWARD;
-
-            if (direction != CURRENT_DIRECTION) {
-                CURRENT_DIRECTION = direction;
-                setMotorDirection(CURRENT_DIRECTION);
-            }
-
-            setMotorSignals(signal, signal);
-            
-            return true;
-        } else if (action == ROTATE_SERVO && command.data != NULL) {
-            long power = (long)command.data;
-            uint8_t angle = (uint8_t)map(power, -100, 100, 0, 180);
-            setSteeringWheelAngle(angle);
-
-            return true;
-        } else if (action == SWITCH_LIGHTING) {
-            DEFAULT_STATE_LED = !DEFAULT_STATE_LED;
-            digitalWrite(PIN_LED, DEFAULT_STATE_LED ? HIGH : LOW);
-
-            return true;
-        }
+    switch (command.action) {
+        case ROTATE_ENGINE:
+            return rotateEngine(command.data);
+        case ROTATE_SERVO:
+            return rotateServo(command.data);
+        case SWITCH_LIGHTING:
+            return switchLighting();
+        default:
+            return false;
     }
-
-    return false;
 }
 
 /**
@@ -232,7 +266,7 @@ void setup() {
     pinMode(PIN_MOTOR_DRIVER_ENA, OUTPUT);
     pinMode(PIN_MOTOR_DRIVER_ENB, OUTPUT);
 
-    setMotorDirection(CURRENT_DIRECTION);
+    setMotorDirection(DIRECTION_FORWARD);
 
     pinMode(PIN_SERVO_SIGNAL, OUTPUT);
     setSteeringWheelPin(PIN_SERVO_SIGNAL);
