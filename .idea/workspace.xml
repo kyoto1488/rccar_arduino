@@ -18,14 +18,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d0e3d7e-6a4a-43fe-916b-08852010b0c3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CDC.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CDC.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/radio_car.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/radio_car.elf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/radio_car.hex" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/radio_car.hex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/radio_car_radio_car.ino.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/radio_car_radio_car.ino.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/radio_car.h" beforeDir="false" afterPath="$PROJECT_DIR$/radio_car.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/radio_car.ino" beforeDir="false" afterPath="$PROJECT_DIR$/radio_car.ino" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -41,8 +33,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/radio_car.ino">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="157" column="45" selection-start-line="157" selection-start-column="45" selection-end-line="157" selection-end-column="45" />
+            <state relative-caret-position="122">
+              <caret line="267" selection-start-line="267" selection-end-line="267" />
               <folding>
                 <element signature="e#842#1570#0" />
                 <element signature="e#1572#1831#0" />
@@ -314,12 +306,12 @@
       <workItem from="1559331853866" duration="1722000" />
       <workItem from="1559333724337" duration="1785000" />
       <workItem from="1559335541255" duration="1766000" />
-      <workItem from="1559337357573" duration="730000" />
+      <workItem from="1559337357573" duration="926000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67675000" />
+    <option name="totallyTimeSpent" value="67871000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -454,8 +446,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/radio_car.ino">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="157" column="45" selection-start-line="157" selection-start-column="45" selection-end-line="157" selection-end-column="45" />
+        <state relative-caret-position="122">
+          <caret line="267" selection-start-line="267" selection-end-line="267" />
           <folding>
             <element signature="e#842#1570#0" />
             <element signature="e#1572#1831#0" />

@@ -264,6 +264,9 @@ void setup() {
 }
 
 /**
+ * @example command: "at: e; dt: 100";
+ * @details at = action, e = engine, dt = data, 100 = data value
+ *
  * Default arduino function
  */
 void loop() {
