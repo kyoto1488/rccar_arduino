@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-typedef double data_t;
+typedef int16_t data_t;
 typedef uint8_t pin_t;
 typedef uint8_t motor_dir_t;
 typedef uint8_t action_t;

@@ -1,9 +1,11 @@
 CDC.o: \
+  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/WCharacter.h \
   /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/binary.h \
   /Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include/stddef.h \
   /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/string.h \
   /Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include/stdbool.h \
   /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/stdlib.h \
+  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Arduino.h \
   /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/math.h \
   /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/util/delay_basic.h \
   /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/util/delay.h \
@@ -22,16 +24,6 @@ CDC.o: \
   /Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include/stdint.h \
   /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/inttypes.h \
   /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/USBAPI.h \
-  /clion_clangd_inmemory_directory/macros/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Arduino.h \
+  /clion_clangd_inmemory_directory/macros/Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/ctype.h \
   /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/CDC.cpp \
-  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Arduino.h \
-  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/WCharacter.h \
-  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/ctype.h \
-  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/WString.h \
-  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/HardwareSerial.h \
-  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Stream.h \
-  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Print.h \
-  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/stdio.h \
-  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include/stdarg.h \
-  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Printable.h \
-  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/variants/standard/pins_arduino.h
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/ctype.h

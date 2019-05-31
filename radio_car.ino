@@ -82,12 +82,12 @@ void setSteeringWheelPin(pin_t pin) {
 }
 
 /**
- * Функция парсит данные из переданного ключа
- * @example $data = cmd: action; data: 1.222; -> f(data, "cmd") -> "action"
+ * Функция парсит данные из переданной строки и ключа
+ * @example $data = "cmd: action; data: 1.222;" -> f(data, "cmd") -> "action"
  *
  * @param input
  * @param key
- * @return
+ * @return value of NULL if not found key
  */
 String getSubstringValueFromKey(String input, String key) {
     int index = input.indexOf(key);
@@ -134,9 +134,9 @@ action_t createCommandAction(String action) {
  */
 data_t createCommandData(String data) {
     if (data != NULL)
-        return (data_t) data.toDouble();
+        return (data_t) data.toInt();
 
-    return NULL;
+    return -9999;
 }
 
 /**
@@ -154,12 +154,14 @@ command_t createCommand(String input) {
 
 /**
  * Проверка валидности комманды
+ * Комманда валидна если действие не равно NULL
+ * и данные не выходят за диапазон [-128,127]
  *
  * @param command
  * @return
  */
 bool isValidCommand(command_t command) {
-    return command.action != NULL && command.data != NULL;
+    return command.action != NULL && command.data >= -128 && command.data <= 127;
 }
 
 /**
@@ -198,8 +200,7 @@ bool rotateServo(command_t command) {
  * @return
  */
 bool switchLighting(command_t command) {
-    uint8_t state = (uint8_t)command.data == 1 ? HIGH : LOW;
-    digitalWrite(PIN_LED, state);
+    digitalWrite(PIN_LED, command.data > 0 ? HIGH : LOW);
 
     return true;
 }
@@ -211,8 +212,7 @@ bool switchLighting(command_t command) {
  * @return
  */
 bool debugMode(command_t command) {
-    uint8_t data = (uint8_t)command.data;
-    DEBUG = data > 0 ? true : false;
+    DEBUG = command.data > 0;
 
     return true;
 }
@@ -264,17 +264,6 @@ void setup() {
 }
 
 /**
- * Выводит данные в послед. порт
- *
- * @param data
- */
-void log(String data) {
-    if (DEBUG) {
-        Serial.print(data);
-    }
-}
-
-/**
  * Default arduino function
  */
 void loop() {
@@ -286,25 +275,27 @@ void loop() {
             long startExecutionTime = micros();
             bool isExecuted = execute(command);
             long endExecutionTime = micros();
-            log("Input: ");
-            log(input);
-            log("\n");
-            log("Execute: ");
-            log(isExecuted ? "true" : "false");
-            log("\n");
-            log("Delta time: ");
-            log((String)(endExecutionTime - startExecutionTime));
-            log("\n");
-            log("Commands in seconds: ");
-            log((String)(1000000 / (endExecutionTime - startExecutionTime)));
-            log("\n--------------------\n");
+
+            if (DEBUG) {
+                String logData = "Input: ";
+                logData.concat(input);
+                logData.concat("\nExecuted: ");
+                logData.concat(isExecuted ? "true" : "false");
+                logData.concat("\nDelta time: ");
+                logData.concat(endExecutionTime - startExecutionTime);
+                logData.concat("\nCommands in seconds: ");
+                logData.concat(1000000 / (endExecutionTime - startExecutionTime));
+                logData.concat("\n--------------------\n");
+                Serial.print(logData);
+            }
         } else {
-            log("Input: ");
-            log(input);
-            log("\n");
-            log("Invalid command!");
-            log("\n");
-            log("\n--------------------\n");
+            if (DEBUG) {
+                String logData = "Input: ";
+                logData.concat(input);
+                logData.concat("\nInvalid command!");
+                logData.concat("\n--------------------\n");
+                Serial.print(logData);
+            }
         }
     }
 }
