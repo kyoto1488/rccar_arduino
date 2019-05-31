@@ -17,10 +17,10 @@
  void setSteeringWheelAngle(uint8_t angle) ;
  void setSteeringWheelPin(pin_t pin) ;
  void setSteeringWheelPin(pin_t pin) ;
- String getSubstringValueFromKey(String data, String key) ;
- String getSubstringValueFromKey(String data, String key) ;
- action_t createCommandAction(String data) ;
- action_t createCommandAction(String data) ;
+ String getSubstringValueFromKey(String input, String key) ;
+ String getSubstringValueFromKey(String input, String key) ;
+ action_t createCommandAction(String action) ;
+ action_t createCommandAction(String action) ;
  data_t createCommandData(String data) ;
  data_t createCommandData(String data) ;
  command_t createCommand(String input) ;
