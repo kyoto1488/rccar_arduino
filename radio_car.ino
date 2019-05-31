@@ -1,11 +1,12 @@
 #include <Arduino.h>
 #include <Servo.h>
 #include "radio_car.h"
+#include "../../../../../../Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include/stdint-gcc.h"
 
 Servo steeringWheel;
 
-const pin_t PIN_MOTOR_DRIVER_ENA = 3;
-const pin_t PIN_MOTOR_DRIVER_IN1 = 2;
+const pin_t PIN_MOTOR_DRIVER_ENA = 8;
+const pin_t PIN_MOTOR_DRIVER_IN1 = 8;
 const pin_t PIN_MOTOR_DRIVER_IN2 = 4;
 const pin_t PIN_MOTOR_DRIVER_ENB = 5;
 const pin_t PIN_MOTOR_DRIVER_IN3 = 7;
@@ -14,16 +15,16 @@ const pin_t PIN_SERVO_SIGNAL = 11;
 const pin_t PIN_LED = 13;
 
 const action_t ROTATE_ENGINE = 0x1;
-const action_key_t KEY_ROTATE_ENGINE = "engine";
+const action_key_t KEY_ROTATE_ENGINE = "e";
 const action_t ROTATE_SERVO = 0x2;
-const action_key_t KEY_ROTATE_SERVO = "servo";
+const action_key_t KEY_ROTATE_SERVO = "s";
 const action_t SWITCH_LIGHTING = 0x3;
-const action_key_t KEY_SWITCH_LIGHTING = "lighting";
+const action_key_t KEY_SWITCH_LIGHTING = "l";
 
 const motor_dir_t DIRECTION_FORWARD = 0x1;
 const motor_dir_t DIRECTION_BACKWARD = 0x2;
 
-bool DEFAULT_STATE_LED = true;
+const uint8_t DEFAULT_STATE_LED = LOW;
 
 /**
  * Функция устанавливает направление моторов
@@ -85,13 +86,13 @@ void setSteeringWheelPin(pin_t pin) {
  * @param key
  * @return
  */
- String getSubstringValueFromKey(String data, String key) {
+String getSubstringValueFromKey(String data, String key) {
     int index = data.indexOf(key);
 
     if (index >= 0) {
-        int start = data.indexOf(':', (unsigned int)index) + 1;
-        int end = data.indexOf(';', (unsigned int)start);
-        String substring = data.substring((unsigned int)start,(unsigned int)end);
+        int start = data.indexOf(':', (unsigned int) index) + 1;
+        int end = data.indexOf(';', (unsigned int) start);
+        String substring = data.substring((unsigned int) start, (unsigned int) end);
         substring.trim();
 
         return substring;
@@ -127,7 +128,7 @@ action_t createCommandAction(String data) {
  */
 data_t createCommandData(String data) {
     if (data != NULL)
-        return (data_t)data.toDouble();
+        return (data_t) data.toDouble();
 
     return NULL;
 }
@@ -139,10 +140,20 @@ data_t createCommandData(String data) {
  * @return
  */
 command_t createCommand(String input) {
-    return command_t {
-            createCommandAction(getSubstringValueFromKey(input, "cmd")),
-            createCommandData(getSubstringValueFromKey(input, "data"))
+    return command_t{
+            createCommandAction(getSubstringValueFromKey(input, "a")),
+            createCommandData(getSubstringValueFromKey(input, "d"))
     };
+}
+
+/**
+ * Проверка валидности комманды
+ *
+ * @param command
+ * @return
+ */
+bool isValidCommand(command_t command) {
+    return command.action != NULL;
 }
 
 /**
@@ -151,10 +162,10 @@ command_t createCommand(String input) {
  * @param data
  * @return
  */
-bool rotateEngine(data_t data) {
-    if (data != NULL) {
-        long power = (long)data;
-        uint8_t signal = (uint8_t)map(power, -100, 100, 0, 255);
+bool rotateEngine(command_t command) {
+    if (command.data != NULL) {
+        long power = (long) command.data;
+        uint8_t signal = (uint8_t) map(power, -100, 100, 0, 255);
         motor_dir_t direction = power > 0 ? DIRECTION_FORWARD : DIRECTION_BACKWARD;
         setMotorDirection(direction);
         setMotorSignals(signal, signal);
@@ -171,10 +182,10 @@ bool rotateEngine(data_t data) {
  * @param data
  * @return
  */
-bool rotateServo(data_t data) {
-    if (data != NULL) {
-        long power = (long)data;
-        uint8_t angle = (uint8_t)map(power, -100, 100, 0, 180);
+bool rotateServo(command_t command) {
+    if (command.data != NULL) {
+        long power = (long) command.data;
+        uint8_t angle = (uint8_t) map(power, -100, 100, 0, 180);
         setSteeringWheelAngle(angle);
 
         return true;
@@ -188,11 +199,15 @@ bool rotateServo(data_t data) {
  *
  * @return
  */
-bool switchLighting() {
-    DEFAULT_STATE_LED = !DEFAULT_STATE_LED;
-    digitalWrite(PIN_LED, DEFAULT_STATE_LED ? HIGH : LOW);
+bool switchLighting(command_t command) {
+    if (command.data != NULL) {
+        uint8_t state = (uint8_t)command.data == 1 ? HIGH : LOW;
+        digitalWrite(PIN_LED, state);
 
-    return true;
+        return true;
+    }
+
+    return false;
 }
 
 /**
@@ -204,11 +219,11 @@ bool switchLighting() {
 bool execute(command_t command) {
     switch (command.action) {
         case ROTATE_ENGINE:
-            return rotateEngine(command.data);
+            return rotateEngine(command);
         case ROTATE_SERVO:
-            return rotateServo(command.data);
+            return rotateServo(command);
         case SWITCH_LIGHTING:
-            return switchLighting();
+            return switchLighting(command);
         default:
             return false;
     }
@@ -236,7 +251,7 @@ void setup() {
     setSteeringWheelAngle(90);
 
     pinMode(PIN_LED, OUTPUT);
-    digitalWrite(PIN_LED, DEFAULT_STATE_LED ? HIGH : LOW);
+    digitalWrite(PIN_LED, DEFAULT_STATE_LED);
 }
 
 /**
@@ -245,20 +260,21 @@ void setup() {
 void loop() {
     if (Serial.available() > 0) {
         String input = Serial.readStringUntil('\n');
+        command_t command = createCommand(input);
 
-        unsigned long start = micros();
-
-        bool isExecuted = execute(createCommand(input));
-
-        Serial.print("Executed: ");
-        Serial.print(isExecuted ? "TRUE" : "FALSE");
-        Serial.println();
-        unsigned long delta = micros() - start;
-        Serial.print("Delta Time: ");
-        Serial.print(delta);
-        Serial.println();
-        Serial.print("Count in seconds: ");
-        Serial.print(1000000 / delta);
-        Serial.println();
+        if (isValidCommand(command)) {
+            bool isExecuted = execute(command);
+            Serial.print("Input: ");
+            Serial.print(input);
+            Serial.println();
+            Serial.print("Execute: ");
+            Serial.print(isExecuted ? "true" : "false");
+            Serial.println();
+        } else {
+            Serial.print("Input: ");
+            Serial.print(input);
+            Serial.println();
+            Serial.println("Invalid command!");
+        }
     }
 }

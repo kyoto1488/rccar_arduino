@@ -1,5 +1,5 @@
-CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.obj: \
- /Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/radio_car_radio_car.ino.cpp \
+CMakeFiles/uno_SoftwareSerial.dir/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/libraries/SoftwareSerial/src/SoftwareSerial.cpp.obj: \
+ /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/libraries/SoftwareSerial/src/SoftwareSerial.cpp \
  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Arduino.h \
  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/binary.h \
  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/WCharacter.h \
@@ -11,7 +11,5 @@ CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.obj: \
  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/USBAPI.h \
  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Arduino.h \
  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/variants/standard/pins_arduino.h \
- /Applications/Arduino.app/Contents/Java/libraries/Servo/src/Servo.h \
- /Applications/Arduino.app/Contents/Java/libraries/Servo/src/avr/ServoTimers.h \
- /Users/oleg/Desktop/projects/Arduino/radio_car/radio_car.h \
- /Applications/Arduino.app/Contents/Java/libraries/Servo/../../../../../../Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include/stdint-gcc.h
+ /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/libraries/SoftwareSerial/src/SoftwareSerial.h \
+ /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Stream.h

@@ -275,6 +275,9 @@ uno_ServoTimers_LIB_DEPENDS:STATIC=general;uno_CORE;
 uno_Servo_LIB_DEPENDS:STATIC=general;uno_CORE;
 
 //Dependencies for the target
+uno_SoftwareSerial_LIB_DEPENDS:STATIC=general;uno_CORE;
+
+//Dependencies for the target
 uno_Vector_LIB_DEPENDS:STATIC=general;uno_CORE;
 
 //Dependencies for the target
