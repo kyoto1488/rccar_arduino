@@ -1,7 +1,6 @@
 #include <Arduino.h>
 #include <Servo.h>
 #include "radio_car.h"
-#include "../../../../../../Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include/stdint-gcc.h"
 
 Servo steeringWheel;
 

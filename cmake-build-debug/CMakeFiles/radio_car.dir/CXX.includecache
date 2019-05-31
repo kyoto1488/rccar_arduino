@@ -6,8 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include/stdint-gcc.h
-
 /Applications/Arduino.app/Contents/Java/libraries/Servo/src/Servo.h
 inttypes.h
 -
@@ -49,8 +47,6 @@ Servo.h
 -
 radio_car.h
 /Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/radio_car.h
-../../../../../../Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include/stdint-gcc.h
-/Users/Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include/stdint-gcc.h
 Arduino.h
 /Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/Arduino.h
 

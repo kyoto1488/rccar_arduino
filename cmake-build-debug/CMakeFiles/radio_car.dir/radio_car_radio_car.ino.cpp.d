@@ -13,5 +13,4 @@ CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.obj: \
  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/variants/standard/pins_arduino.h \
  /Applications/Arduino.app/Contents/Java/libraries/Servo/src/Servo.h \
  /Applications/Arduino.app/Contents/Java/libraries/Servo/src/avr/ServoTimers.h \
- /Users/oleg/Desktop/projects/Arduino/radio_car/radio_car.h \
- /Applications/Arduino.app/Contents/Java/libraries/Servo/../../../../../../Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include/stdint-gcc.h
+ /Users/oleg/Desktop/projects/Arduino/radio_car/radio_car.h
