@@ -132,8 +132,8 @@ clean: CMakeFiles/radio_car-size.dir/clean
 # Target rules for target CMakeFiles/radio_car.dir
 
 # All Build rule for target.
-CMakeFiles/radio_car.dir/all: CMakeFiles/uno_Servo.dir/all
 CMakeFiles/radio_car.dir/all: CMakeFiles/uno_ServoTimers.dir/all
+CMakeFiles/radio_car.dir/all: CMakeFiles/uno_Servo.dir/all
 CMakeFiles/radio_car.dir/all: CMakeFiles/uno_CORE.dir/all
 	$(MAKE) -f CMakeFiles/radio_car.dir/build.make CMakeFiles/radio_car.dir/depend
 	$(MAKE) -f CMakeFiles/radio_car.dir/build.make CMakeFiles/radio_car.dir/build

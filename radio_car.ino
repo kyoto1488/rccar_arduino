@@ -19,11 +19,15 @@ const action_t ROTATE_SERVO = 0x2;
 const action_key_t KEY_ROTATE_SERVO = "s";
 const action_t SWITCH_LIGHTING = 0x3;
 const action_key_t KEY_SWITCH_LIGHTING = "l";
+const action_t DEBUG_MODE = 0x4;
+const action_key_t KEY_DEBUG_MODE = "d";
 
 const motor_dir_t DIRECTION_FORWARD = 0x1;
 const motor_dir_t DIRECTION_BACKWARD = 0x2;
 
 const uint8_t DEFAULT_STATE_LED = LOW;
+
+bool DEBUG = false;
 
 /**
  * Функция устанавливает направление моторов
@@ -114,6 +118,8 @@ action_t createCommandAction(String action) {
             return ROTATE_SERVO;
         else if (action.equals(KEY_SWITCH_LIGHTING))
             return SWITCH_LIGHTING;
+        else if (action.equals(KEY_DEBUG_MODE))
+            return DEBUG_MODE;
         // add new actions...
     }
 
@@ -199,6 +205,19 @@ bool switchLighting(command_t command) {
 }
 
 /**
+ * Включает/выключает режим отладки
+ *
+ * @param command
+ * @return
+ */
+bool debugMode(command_t command) {
+    uint8_t data = (uint8_t)command.data;
+    DEBUG = data > 0 ? true : false;
+
+    return true;
+}
+
+/**
  * Функция выполняет переданную комманду
  *
  * @param command
@@ -212,6 +231,8 @@ bool execute(command_t command) {
             return rotateServo(command);
         case SWITCH_LIGHTING:
             return switchLighting(command);
+        case DEBUG_MODE:
+            return debugMode(command);
         default:
             return false;
     }
@@ -243,6 +264,17 @@ void setup() {
 }
 
 /**
+ * Выводит данные в послед. порт
+ *
+ * @param data
+ */
+void log(String data) {
+    if (DEBUG) {
+        Serial.print(data);
+    }
+}
+
+/**
  * Default arduino function
  */
 void loop() {
@@ -251,18 +283,27 @@ void loop() {
         command_t command = createCommand(input);
 
         if (isValidCommand(command)) {
+            long startExecutionTime = micros();
             bool isExecuted = execute(command);
-            Serial.print("Input: ");
-            Serial.print(input);
-            Serial.println();
-            Serial.print("Execute: ");
-            Serial.print(isExecuted ? "true" : "false");
-            Serial.println();
+            long  endExecutionTime = micros();
+            log("Input: ");
+            log(input);
+            log("\n");
+            log("Execute: ");
+            log(isExecuted ? "true" : "false");
+            log("\n");
+            log("Delta time: ");
+            log((String)(endExecutionTime - startExecutionTime));
+            log("\n");
+            log("Commands in seconds: ");
+            log((String)(1000000 / (endExecutionTime - startExecutionTime)));
+            log("\n--------------------\n");
         } else {
-            Serial.print("Input: ");
-            Serial.print(input);
-            Serial.println();
-            Serial.println("Invalid command!");
+            log("Input: ");
+            log(input);
+            log("\n");
+            log("Invalid command!");
+            log("\n");
         }
     }
 }

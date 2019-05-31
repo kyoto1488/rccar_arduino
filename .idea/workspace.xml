@@ -18,6 +18,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d0e3d7e-6a4a-43fe-916b-08852010b0c3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/libuno_Servo.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/libuno_Servo.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/libuno_ServoTimers.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/libuno_ServoTimers.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/radio_car.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/radio_car.elf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/radio_car.hex" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/radio_car.hex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/radio_car_radio_car.ino.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/radio_car_radio_car.ino.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/radio_car_radio_car.ino.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/radio_car_radio_car.ino.d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/radio_car.ino" beforeDir="false" afterPath="$PROJECT_DIR$/radio_car.ino" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -33,11 +42,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/radio_car.ino">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+            <state relative-caret-position="-2226">
+              <caret line="215" column="36" selection-start-line="215" selection-start-column="36" selection-end-line="215" selection-end-column="36" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
+                <element signature="e#3775#4139#0" />
+                <element signature="e#4141#4392#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/radio_car.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -52,7 +72,14 @@
       <find>setStee</find>
       <find>steeringWheel</find>
       <find>low</find>
+      <find>logln</find>
+      <find>'\n'</find>
     </findStrings>
+    <replaceStrings>
+      <replace>log</replace>
+      <replace>'\n'</replace>
+      <replace>&quot;\n&quot;</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -136,8 +163,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="serialMonitor.commands" value="AT&#10;AT+NAMERadioCar&#10;dsadsa&#10;AT+NAME&#10;AT+ROLE=0&#10;dsadsadas&#10;dsadsads&#10;dsdasdas\n&#10;dasdsa&#10;cmd: engine; data:-1000000000;" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="serialMonitor.commands" value="at:e; dt:50;&#10;at:s; dt:50;&#10;at:l; dt:1;&#10;at:s; dt:-100;&#10;at:a; dt:-100;&#10;at:qwwq; dt:-100;&#10;at:ы; dt:-100;&#10;at:e; dt:-100;&#10;AT&#10;AT+NAMERadioCar" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -275,12 +302,15 @@
       <workItem from="1559133856341" duration="840000" />
       <workItem from="1559166607910" duration="736000" />
       <workItem from="1559245253487" duration="333000" />
-      <workItem from="1559311258879" duration="1588000" />
+      <workItem from="1559311258879" duration="1638000" />
+      <workItem from="1559316625283" duration="284000" />
+      <workItem from="1559331853866" duration="1722000" />
+      <workItem from="1559333724337" duration="767000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61338000" />
+    <option name="totallyTimeSpent" value="64161000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -295,17 +325,17 @@
     <frame x="0" y="23" width="1280" height="701" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32714054" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2746365" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32715008" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32715008" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39966273" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289256" />
-      <window_info anchor="bottom" id="Serial Monitor" order="7" weight="0.72006744" />
+      <window_info anchor="bottom" id="Serial Monitor" order="7" weight="0.8802698" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.37099496" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32715008" />
@@ -385,13 +415,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/radio_car.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include/stddef.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -408,11 +431,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/radio_car.ino">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+        <state relative-caret-position="-2226">
+          <caret line="215" column="36" selection-start-line="215" selection-start-column="36" selection-end-line="215" selection-end-column="36" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#3775#4139#0" />
+            <element signature="e#4141#4392#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/radio_car.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
         </state>
       </provider>
     </entry>
