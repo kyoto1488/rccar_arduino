@@ -113,8 +113,9 @@ action_t createCommandAction(String action) {
             return ROTATE_ENGINE;
         else if (action.equals(KEY_ROTATE_SERVO))
             return ROTATE_SERVO;
-        if (action.equals(KEY_SWITCH_LIGHTING))
+        else if (action.equals(KEY_SWITCH_LIGHTING))
             return SWITCH_LIGHTING;
+        // add new actions...
     }
 
     return NULL;
@@ -153,7 +154,7 @@ command_t createCommand(String input) {
  * @return
  */
 bool isValidCommand(command_t command) {
-    return command.action != NULL;
+    return command.action != NULL && command.data != NULL;
 }
 
 /**
@@ -163,17 +164,13 @@ bool isValidCommand(command_t command) {
  * @return
  */
 bool rotateEngine(command_t command) {
-    if (command.data != NULL) {
-        long power = (long) command.data;
-        uint8_t signal = (uint8_t) map(power, -100, 100, 0, 255);
-        motor_dir_t direction = power > 0 ? DIRECTION_FORWARD : DIRECTION_BACKWARD;
-        setMotorDirection(direction);
-        setMotorSignals(signal, signal);
+    long power = (long) command.data;
+    uint8_t signal = (uint8_t) map(power, -100, 100, 0, 255);
+    motor_dir_t direction = power > 0 ? DIRECTION_FORWARD : DIRECTION_BACKWARD;
+    setMotorDirection(direction);
+    setMotorSignals(signal, signal);
 
-        return true;
-    }
-
-    return false;
+    return true;
 }
 
 /**
@@ -183,15 +180,11 @@ bool rotateEngine(command_t command) {
  * @return
  */
 bool rotateServo(command_t command) {
-    if (command.data != NULL) {
-        long power = (long) command.data;
-        uint8_t angle = (uint8_t) map(power, -100, 100, 0, 180);
-        setSteeringWheelAngle(angle);
+    long power = (long) command.data;
+    uint8_t angle = (uint8_t) map(power, -100, 100, 0, 180);
+    setSteeringWheelAngle(angle);
 
-        return true;
-    }
-
-    return false;
+    return true;
 }
 
 /**
@@ -200,14 +193,10 @@ bool rotateServo(command_t command) {
  * @return
  */
 bool switchLighting(command_t command) {
-    if (command.data != NULL) {
-        uint8_t state = (uint8_t)command.data == 1 ? HIGH : LOW;
-        digitalWrite(PIN_LED, state);
+    uint8_t state = (uint8_t)command.data == 1 ? HIGH : LOW;
+    digitalWrite(PIN_LED, state);
 
-        return true;
-    }
-
-    return false;
+    return true;
 }
 
 /**

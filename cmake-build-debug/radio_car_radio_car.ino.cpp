@@ -122,17 +122,17 @@ void setSteeringWheelPin(pin_t pin) {
  * Функция парсит данные из переданного ключа
  * @example $data = cmd: action; data: 1.222; -> f(data, "cmd") -> "action"
  *
- * @param data
+ * @param input
  * @param key
  * @return
  */
-String getSubstringValueFromKey(String data, String key) {
-    int index = data.indexOf(key);
+String getSubstringValueFromKey(String input, String key) {
+    int index = input.indexOf(key);
 
     if (index >= 0) {
-        int start = data.indexOf(':', (unsigned int) index) + 1;
-        int end = data.indexOf(';', (unsigned int) start);
-        String substring = data.substring((unsigned int) start, (unsigned int) end);
+        int start = input.indexOf(':', (unsigned int) index) + 1;
+        int end = input.indexOf(';', (unsigned int) start);
+        String substring = input.substring((unsigned int) start, (unsigned int) end);
         substring.trim();
 
         return substring;
@@ -144,16 +144,16 @@ String getSubstringValueFromKey(String data, String key) {
 /**
  * Функция возвращает действие для команды
  *
- * @param data
+ * @param action
  * @return
  */
-action_t createCommandAction(String data) {
-    if (data != NULL) {
-        if (data.equals(KEY_ROTATE_ENGINE))
+action_t createCommandAction(String action) {
+    if (action != NULL) {
+        if (action.equals(KEY_ROTATE_ENGINE))
             return ROTATE_ENGINE;
-        else if (data.equals(KEY_ROTATE_SERVO))
+        else if (action.equals(KEY_ROTATE_SERVO))
             return ROTATE_SERVO;
-        if (data.equals(KEY_SWITCH_LIGHTING))
+        else if (action.equals(KEY_SWITCH_LIGHTING))
             return SWITCH_LIGHTING;
     }
 
@@ -181,8 +181,8 @@ data_t createCommandData(String data) {
  */
 command_t createCommand(String input) {
     return command_t{
-            createCommandAction(getSubstringValueFromKey(input, "a")),
-            createCommandData(getSubstringValueFromKey(input, "d"))
+            createCommandAction(getSubstringValueFromKey(input, "at")),
+            createCommandData(getSubstringValueFromKey(input, "dt"))
     };
 }
 
