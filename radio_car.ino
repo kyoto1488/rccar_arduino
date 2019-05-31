@@ -285,7 +285,7 @@ void loop() {
         if (isValidCommand(command)) {
             long startExecutionTime = micros();
             bool isExecuted = execute(command);
-            long  endExecutionTime = micros();
+            long endExecutionTime = micros();
             log("Input: ");
             log(input);
             log("\n");
@@ -304,6 +304,7 @@ void loop() {
             log("\n");
             log("Invalid command!");
             log("\n");
+            log("\n--------------------\n");
         }
     }
 }
