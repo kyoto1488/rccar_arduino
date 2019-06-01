@@ -3,30 +3,6 @@
 #include "radio_car.h"
 
 Servo steeringWheel;
-
-const pin_t PIN_MOTOR_DRIVER_ENA = 8;
-const pin_t PIN_MOTOR_DRIVER_IN1 = 8;
-const pin_t PIN_MOTOR_DRIVER_IN2 = 4;
-const pin_t PIN_MOTOR_DRIVER_ENB = 5;
-const pin_t PIN_MOTOR_DRIVER_IN3 = 7;
-const pin_t PIN_MOTOR_DRIVER_IN4 = 8;
-const pin_t PIN_SERVO_SIGNAL = 11;
-const pin_t PIN_LED = 13;
-
-const action_t ROTATE_ENGINE = 0x1;
-const action_key_t KEY_ROTATE_ENGINE = "e";
-const action_t ROTATE_SERVO = 0x2;
-const action_key_t KEY_ROTATE_SERVO = "s";
-const action_t SWITCH_LIGHTING = 0x3;
-const action_key_t KEY_SWITCH_LIGHTING = "l";
-const action_t DEBUG_MODE = 0x4;
-const action_key_t KEY_DEBUG_MODE = "d";
-
-const motor_dir_t DIRECTION_FORWARD = 0x1;
-const motor_dir_t DIRECTION_BACKWARD = 0x2;
-
-const uint8_t DEFAULT_STATE_LED = LOW;
-
 bool DEBUG = false;
 
 /**
@@ -35,15 +11,15 @@ bool DEBUG = false;
  *
  * @param direction
  */
-void setMotorDirection(motor_dir_t direction) {
+void setMotorDirection(uint8_t direction) {
     switch (direction) {
-        case DIRECTION_FORWARD:
+        case FORWARD:
             digitalWrite(PIN_MOTOR_DRIVER_IN1, HIGH);
             digitalWrite(PIN_MOTOR_DRIVER_IN2, LOW);
             digitalWrite(PIN_MOTOR_DRIVER_IN3, HIGH);
             digitalWrite(PIN_MOTOR_DRIVER_IN4, LOW);
             break;
-        case DIRECTION_BACKWARD:
+        case BACKWARD:
             digitalWrite(PIN_MOTOR_DRIVER_IN1, LOW);
             digitalWrite(PIN_MOTOR_DRIVER_IN2, HIGH);
             digitalWrite(PIN_MOTOR_DRIVER_IN3, LOW);
@@ -77,7 +53,7 @@ void setSteeringWheelAngle(uint8_t angle) {
  *
  * @param pin
  */
-void setSteeringWheelPin(pin_t pin) {
+void setSteeringWheelPin(uint8_t pin) {
     steeringWheel.attach(pin);
 }
 
@@ -173,8 +149,7 @@ bool isValidCommand(command_t command) {
 bool rotateEngine(command_t command) {
     long power = (long) command.data;
     uint8_t signal = (uint8_t) map(power < 0 ? power * -1 : power, 0, 100, 0, 255);
-    motor_dir_t direction = power > 0 ? DIRECTION_FORWARD : DIRECTION_BACKWARD;
-    setMotorDirection(direction);
+    setMotorDirection(power > 0 ? FORWARD : BACKWARD);
     setMotorSignals(signal, signal);
 
     return true;
@@ -252,7 +227,7 @@ void setup() {
     pinMode(PIN_MOTOR_DRIVER_ENA, OUTPUT);
     pinMode(PIN_MOTOR_DRIVER_ENB, OUTPUT);
 
-    setMotorDirection(DIRECTION_FORWARD);
+    setMotorDirection(FORWARD);
 
     pinMode(PIN_SERVO_SIGNAL, OUTPUT);
     setSteeringWheelPin(PIN_SERVO_SIGNAL);

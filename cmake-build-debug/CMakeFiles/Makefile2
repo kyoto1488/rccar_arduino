@@ -132,9 +132,9 @@ clean: CMakeFiles/radio_car-size.dir/clean
 # Target rules for target CMakeFiles/radio_car.dir
 
 # All Build rule for target.
+CMakeFiles/radio_car.dir/all: CMakeFiles/uno_ServoTimers.dir/all
 CMakeFiles/radio_car.dir/all: CMakeFiles/uno_Servo.dir/all
 CMakeFiles/radio_car.dir/all: CMakeFiles/uno_CORE.dir/all
-CMakeFiles/radio_car.dir/all: CMakeFiles/uno_ServoTimers.dir/all
 	$(MAKE) -f CMakeFiles/radio_car.dir/build.make CMakeFiles/radio_car.dir/depend
 	$(MAKE) -f CMakeFiles/radio_car.dir/build.make CMakeFiles/radio_car.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target radio_car"

@@ -1,0 +1,27 @@
+wiring_digital.o: \
+  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/variants/standard/pins_arduino.h \
+  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/binary.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include/stddef.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/avr/pgmspace.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/math.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/string.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include/stdbool.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/stdlib.h \
+  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Arduino.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include/stdarg.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/stdio.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/avr/interrupt.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/avr/lock.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/avr/fuse.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/avr/version.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/avr/common.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/avr/portpins.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/avr/iom328p.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/stdint.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include/stdint.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/inttypes.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/avr/sfr_defs.h \
+  /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/avr/io.h \
+  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/wiring_private.h \
+  /clion_clangd_inmemory_directory/macros/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/wiring_digital.c \
+  /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/wiring_digital.c
