@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <Servo.h>
-#include "radio_car.h"
+#include <radio_car.h>
 
 Servo steeringWheel;
 bool DEBUG = false;
@@ -122,22 +122,31 @@ data_t createCommandData(String data) {
  * @return
  */
 command_t createCommand(String input) {
-    return command_t{
+    return command_t {
             createCommandAction(getSubstringValueFromKey(input, "at")),
             createCommandData(getSubstringValueFromKey(input, "dt"))
     };
 }
 
 /**
- * Проверка валидности комманды
- * Комманда валидна если действие не равно NULL
- * и данные не выходят за диапазон [-128,127]
+ * Проверка валидности действия команды
  *
  * @param command
  * @return
  */
-bool isValidCommand(command_t command) {
-    return command.action != NULL && command.data >= -128 && command.data <= 127;
+bool isValidCommandAction(command_t command) {
+    return command.action != NULL;
+}
+
+/**
+ * Проверка валидности данных команды
+ * Данные не должны выходить за диапазон [-128,127]
+ *
+ * @param command
+ * @return
+ */
+bool isValidCommandData(command_t command) {
+    return command.data >= -128 && command.data <= 127;
 }
 
 /**
@@ -249,7 +258,7 @@ void loop() {
         String input = Serial.readStringUntil('\n');
         command_t command = createCommand(input);
 
-        if (isValidCommand(command)) {
+        if (isValidCommandAction(command) && isValidCommandData(command)) {
             long startExecutionTime = micros();
             bool isExecuted = execute(command);
             long endExecutionTime = micros();

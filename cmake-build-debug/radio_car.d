@@ -1,9 +1,6 @@
-radio_car.o: \
-  /var/folders/7f/6xvgv10j1xs_dyk683d6sv500000gn/T/preamble-c70ccd.pch \
+radio_car.o: /Users/oleg/Desktop/projects/Arduino/radio_car/radio_car.h \
   /Applications/Arduino.app/Contents/Java/libraries/Servo/src/avr/ServoTimers.h \
   /Applications/Arduino.app/Contents/Java/libraries/Servo/src/Servo.h \
-  /Users/oleg/Desktop/projects/Arduino/radio_car/libraries/Vector/src/Vector/VectorDefinitions.h \
-  /Users/oleg/Desktop/projects/Arduino/radio_car/libraries/Vector/src/Vector.h \
   /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/variants/standard/pins_arduino.h \
   /Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Arduino.h \
   /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/util/delay_basic.h \
@@ -38,5 +35,5 @@ radio_car.o: \
   /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/string.h \
   /Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include/stdbool.h \
   /Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include/stdlib.h \
-  /clion_clangd_inmemory_directory/macros/Users/oleg/Desktop/projects/Arduino/radio_car/radio_car.h \
-  /Users/oleg/Desktop/projects/Arduino/radio_car/radio_car.h
+  /clion_clangd_inmemory_directory/macros/Users/oleg/Desktop/projects/Arduino/radio_car/radio_car.ino \
+  /Users/oleg/Desktop/projects/Arduino/radio_car/radio_car.ino

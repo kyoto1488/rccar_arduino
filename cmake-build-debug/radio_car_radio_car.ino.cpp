@@ -2,7 +2,7 @@
 #line 1 "/Users/oleg/Desktop/projects/Arduino/radio_car/radio_car.ino"
 #include <Arduino.h>
 #include <Servo.h>
-#include "radio_car.h"
+#include <radio_car.h>
 
 #line 7 "/Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/radio_car_radio_car.ino.cpp"
 #include "Arduino.h"
@@ -24,8 +24,10 @@
  data_t createCommandData(String data) ;
  command_t createCommand(String input) ;
  command_t createCommand(String input) ;
- bool isValidCommand(command_t command) ;
- bool isValidCommand(command_t command) ;
+ bool isValidCommandAction(command_t command) ;
+ bool isValidCommandAction(command_t command) ;
+ bool isValidCommandData(command_t command) ;
+ bool isValidCommandData(command_t command) ;
  bool rotateEngine(command_t command) ;
  bool rotateEngine(command_t command) ;
  bool rotateServo(command_t command) ;
@@ -164,22 +166,31 @@ data_t createCommandData(String data) {
  * @return
  */
 command_t createCommand(String input) {
-    return command_t{
+    return command_t {
             createCommandAction(getSubstringValueFromKey(input, "at")),
             createCommandData(getSubstringValueFromKey(input, "dt"))
     };
 }
 
 /**
- * Проверка валидности комманды
- * Комманда валидна если действие не равно NULL
- * и данные не выходят за диапазон [-128,127]
+ * Проверка валидности действия команды
  *
  * @param command
  * @return
  */
-bool isValidCommand(command_t command) {
-    return command.action != NULL && command.data >= -128 && command.data <= 127;
+bool isValidCommandAction(command_t command) {
+    return command.action != NULL;
+}
+
+/**
+ * Проверка валидности данных команды
+ * Данные не должны выходить за диапазон [-128,127]
+ *
+ * @param command
+ * @return
+ */
+bool isValidCommandData(command_t command) {
+    return command.data >= -128 && command.data <= 127;
 }
 
 /**
@@ -290,8 +301,8 @@ void loop() {
     if (Serial.available() > 0) {
         String input = Serial.readStringUntil('\n');
         command_t command = createCommand(input);
-
-        if (isValidCommand(command)) {
+        
+        if (isValidCommandAction(command) && isValidCommandData(command)) {
             long startExecutionTime = micros();
             bool isExecuted = execute(command);
             long endExecutionTime = micros();
