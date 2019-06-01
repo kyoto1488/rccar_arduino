@@ -172,7 +172,7 @@ bool isValidCommand(command_t command) {
  */
 bool rotateEngine(command_t command) {
     long power = (long) command.data;
-    uint8_t signal = (uint8_t) map(power, -100, 100, 0, 255);
+    uint8_t signal = (uint8_t) map(power < 0 ? power * -1 : power, 0, 100, 0, 255);
     motor_dir_t direction = power > 0 ? DIRECTION_FORWARD : DIRECTION_BACKWARD;
     setMotorDirection(direction);
     setMotorSignals(signal, signal);
