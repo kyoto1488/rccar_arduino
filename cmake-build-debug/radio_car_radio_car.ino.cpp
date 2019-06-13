@@ -301,7 +301,7 @@ void loop() {
     if (Serial.available() > 0) {
         String input = Serial.readStringUntil('\n');
         command_t command = createCommand(input);
-        
+
         if (isValidCommandAction(command) && isValidCommandData(command)) {
             long startExecutionTime = micros();
             bool isExecuted = execute(command);

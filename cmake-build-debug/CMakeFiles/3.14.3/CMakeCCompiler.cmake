@@ -1,7 +1,7 @@
-set(CMAKE_C_COMPILER "/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-gcc")
+set(CMAKE_C_COMPILER "/usr/local/bin/avr-gcc")
 set(CMAKE_C_COMPILER_ARG1 "")
 set(CMAKE_C_COMPILER_ID "GNU")
-set(CMAKE_C_COMPILER_VERSION "5.4.0")
+set(CMAKE_C_COMPILER_VERSION "9.1.0")
 set(CMAKE_C_COMPILER_VERSION_INTERNAL "")
 set(CMAKE_C_COMPILER_WRAPPER "")
 set(CMAKE_C_STANDARD_COMPUTED_DEFAULT "11")
@@ -69,7 +69,7 @@ endif()
 
 
 
-set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "/Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include;/Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0/include-fixed;/Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include")
+set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "/usr/local/Cellar/avr-gcc/9.1.0/lib/avr-gcc/9/gcc/avr/9.1.0/include;/usr/local/Cellar/avr-gcc/9.1.0/lib/avr-gcc/9/gcc/avr/9.1.0/include-fixed;/usr/local/Cellar/avr-gcc/9.1.0/avr/include")
 set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "gcc;m;c")
-set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/5.4.0;/Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc;/Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/lib")
+set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/usr/local/Cellar/avr-gcc/9.1.0/lib/avr-gcc/9/gcc/avr/9.1.0;/usr/local/Cellar/avr-gcc/9.1.0/avr/lib")
 set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

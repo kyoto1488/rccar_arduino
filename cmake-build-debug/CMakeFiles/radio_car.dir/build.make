@@ -64,15 +64,15 @@ radio_car_radio_car.ino.cpp: ../radio_car.ino
 CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.obj: CMakeFiles/radio_car.dir/flags.make
 CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.obj: radio_car_radio_car.ino.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.obj"
-	/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.obj -c /Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/radio_car_radio_car.ino.cpp
+	/usr/local/bin/avr-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.obj -c /Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/radio_car_radio_car.ino.cpp
 
 CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.i"
-	/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/radio_car_radio_car.ino.cpp > CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.i
+	/usr/local/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/radio_car_radio_car.ino.cpp > CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.i
 
 CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.s"
-	/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/radio_car_radio_car.ino.cpp -o CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.s
+	/usr/local/bin/avr-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug/radio_car_radio_car.ino.cpp -o CMakeFiles/radio_car.dir/radio_car_radio_car.ino.cpp.s
 
 # Object files for target radio_car
 radio_car_OBJECTS = \

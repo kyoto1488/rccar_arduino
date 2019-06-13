@@ -1,23 +1,37 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/oleg/Desktop/projects/Arduino/radio_car
--- The C compiler identification is GNU 5.4.0
--- The CXX compiler identification is GNU 5.4.0
--- Check for working C compiler: /Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-gcc
--- Check for working C compiler: /Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-gcc -- works
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Detecting C compile features
--- Detecting C compile features - done
--- Check for working CXX compiler: /Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-g++
--- Check for working CXX compiler: /Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-g++ -- works
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Detecting CXX compile features
--- Detecting CXX compile features - done
--- Generating radio_car
--- Generating uno_Servo for library Servo
--- Generating uno_ServoTimers for library ServoTimers
--- Found library Servo needs uno_Servo;uno_ServoTimers
--- Using /Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-objcopy for converting firmware image to hex
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/oleg/Desktop/Projects/Arduino/radio_car
+CMake Error at CMakeLists.txt:4 (project):
+  The CMAKE_C_COMPILER:
+
+    /Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-gcc
+
+  is not a full path to an existing compiler tool.
+
+  Tell CMake where to find the compiler by setting either the environment
+  variable "CC" or the CMake cache entry CMAKE_C_COMPILER to the full path to
+  the compiler, or to the compiler name if it is in the PATH.
+
+
+CMake Error at CMakeLists.txt:4 (project):
+  The CMAKE_CXX_COMPILER:
+
+    /Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-g++
+
+  is not a full path to an existing compiler tool.
+
+  Tell CMake where to find the compiler by setting either the environment
+  variable "CXX" or the CMake cache entry CMAKE_CXX_COMPILER to the full path
+  to the compiler, or to the compiler name if it is in the PATH.
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/oleg/Desktop/Projects/Arduino/radio_car/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "/Users/oleg/Desktop/Projects/Arduino/radio_car/cmake-build-debug/CMakeFiles/CMakeError.log".
+Cannot read /Users/oleg/Desktop/Projects/Arduino/radio_car/cmake-build-debug/CMakeFiles/3.14.3/CMakeCCompiler.cmake
+Cannot read /Users/oleg/Desktop/Projects/Arduino/radio_car/cmake-build-debug/CMakeFiles/3.14.3/CMakeCXXCompiler.cmake
+
+Cannot get compiler information:
+	Cannot run program "/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-g++" (in directory "/Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug"): error=2, No such file or directory
+	Cannot run program "/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-gcc" (in directory "/Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug"): error=2, No such file or directory
+	Cannot run program "/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-g++" (in directory "/Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug"): error=2, No such file or directory
+	Cannot run program "/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-g++" (in directory "/Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug"): error=2, No such file or directory
+	Cannot run program "/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-g++" (in directory "/Users/oleg/Desktop/projects/Arduino/radio_car/cmake-build-debug"): error=2, No such file or directory
