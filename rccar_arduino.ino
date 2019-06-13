@@ -1,6 +1,5 @@
 #include <Arduino.h>
 #include <Servo.h>
-#include <radio_car.h>
 
 #define FORWARD 0x1
 #define BACKWARD 0x2
@@ -34,7 +33,7 @@ typedef struct {
 } command_t;
 
 Servo steeringWheel;
-bool DEBUG = false;
+bool DEBUG = true;
 
 /**
  * Функция устанавливает направление моторов
@@ -286,7 +285,7 @@ void setup() {
  */
 void loop() {
     if (Serial.available() > 0) {
-        String input = Serial.readStringUntil('\n');
+        String input = Serial.readStringUntil('*');
         command_t command = createCommand(input);
 
         if (isValidCommandAction(command) && isValidCommandData(command)) {
