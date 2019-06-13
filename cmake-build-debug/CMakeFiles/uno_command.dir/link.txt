@@ -1,2 +1,0 @@
-/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-ar qc libuno_command.a  CMakeFiles/uno_command.dir/command/command.cpp.obj
-/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/avr-ranlib libuno_command.a
